@@ -1,2 +1,4 @@
 .idea
 vendor
+application/var/cache
+application/var/logs
