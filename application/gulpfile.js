@@ -8,19 +8,19 @@ var concat = require('gulp-concat');
 var concatCss = require('gulp-concat-css');
 
 gulp.task('css', ['sass'], function () {
-    return gulp.src('./public/assets/css/**/*.css')
-        .pipe(concatCss("public/assets/css/style.css"))
+    return gulp.src('./web/assets/css/**/*.css')
+        .pipe(concatCss("web/assets/css/style.css"))
         .pipe(gulp.dest('./'));
 });
 
 gulp.task('sass', function () {
-    return gulp.src('./public/assets/sass/**/*.scss')
+    return gulp.src('./web/assets/sass/**/*.scss')
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-        .pipe(gulp.dest('./public/assets/css'))
+        .pipe(gulp.dest('./web/assets/css'))
 });
 
 gulp.task('sass:watch', function () {
-    gulp.watch('./public/assets/sass/**/*.scss', ['sass', 'css']);
+    gulp.watch('./web/assets/sass/**/*.scss', ['sass', 'css']);
 });
 
 gulp.task('default', ['sass', 'css']);

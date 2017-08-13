@@ -2,3 +2,4 @@
 vendor
 application/var/cache
 application/var/logs
+npm-debug.log
