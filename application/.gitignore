@@ -16,3 +16,6 @@
 /vendor/
 /web/bundles/
 node_modules
+/web/assets/bower_components
+/web/assets/css
+!/web/assets/css/style.css
