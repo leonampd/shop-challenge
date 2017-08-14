@@ -2,11 +2,12 @@
   .produto {
     background-color: #fff;
     border: solid 1px $gray-lighter;
-    .imagem img {
-      width: 100%;
-      min-height: 180px;
-      max-height: 185px;
-    }
+    margin-bottom: 30px;
+    //.imagem img {
+    //  width: 100%;
+    //  min-height: 180px;
+    //  max-height: 185px;
+    //}
     .infos {
       margin: 20px 15px;
       .titulo, .subtitulo, .preco {

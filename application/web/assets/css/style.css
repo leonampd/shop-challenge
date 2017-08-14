@@ -6495,12 +6495,7 @@ button.close {
 .produtos-row .produto {
   background-color: #fff;
   border: solid 1px #eee;
-}
-
-.produtos-row .produto .imagem img {
-  width: 100%;
-  min-height: 180px;
-  max-height: 185px;
+  margin-bottom: 30px;
 }
 
 .produtos-row .produto .infos {
