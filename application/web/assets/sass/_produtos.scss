@@ -1,0 +1,29 @@
+.produtos-row {
+  .produto {
+    background-color: #fff;
+    border: solid 1px $gray-lighter;
+    .imagem img {
+      width: 100%;
+      min-height: 180px;
+      max-height: 185px;
+    }
+    .infos {
+      margin: 20px 15px;
+      .titulo, .subtitulo, .preco {
+        display: block;
+        line-height: 18pt;
+      }
+      .titulo {
+        font-size: 14pt;
+        font-weight: bold;
+      }
+      .preco {
+        font-weight: bold;
+        font-size: 12pt;
+      }
+      .btn-add-to-cart {
+        margin: 15px 0;
+      }
+    }
+  }
+}
