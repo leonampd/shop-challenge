@@ -6,6 +6,7 @@
 
     namespace Leonam\ShopChallenge\Bundle\Model;
 
+    use Leonam\ShopChallenge\Bundle\Entity\CartRepository;
     use Leonam\ShopChallenge\Bundle\Entity\ProductRepository;
     use Leonam\ShopChallenge\Bundle\Persistance\JustForTestPersistance;
 
@@ -13,15 +14,15 @@
     class Cart
     {
         /**
-         * @var Leonam\ShopChallenge\Bundle\Entity\Product[]
+         * @var CartItem
          */
-        protected $products;
+        protected $items;
 
-        public function getCartProducts()
+        public function getItems()
         {
             $fakeDBAccessLayer = new JustForTestPersistance();
-            $productRepository = new ProductRepository($fakeDBAccessLayer);
+            $cartRepository = new CartRepository($fakeDBAccessLayer);
 
-            return $productRepository->getAll();
+            return $cartRepository->getAll();
         }
     }

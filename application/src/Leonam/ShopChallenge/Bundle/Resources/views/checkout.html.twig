@@ -10,22 +10,22 @@
             </div>
         </div>
         <div class="panel-body">
-            {% for product in products %}
+            {% for item in items %}
                 <div class="row produto-row">
                     <div class="produto">
                         <div class="col-md-2">
-                            <img class="img-responsive" src="{{ product.featuredImage }}" alt="{{ product.name }}">
+                            <img class="img-responsive" src="{{ item.product.featuredImage }}" alt="{{ item.product.name }}">
                         </div>
                         <div class="col-md-6 infos">
-                            <h4>{{ product.name }}</h4>
-                            <p>{{ product.description }}</p>
-                            <p>Vendido e entregue por <span class="vendido_entregue_por">{{ product.seller.name }}</span></p>
+                            <h4>{{ item.product.name }}</h4>
+                            <p>{{ item.product.description }}</p>
+                            <p>Vendido e entregue por <span class="vendido_entregue_por">{{ item.product.seller.name }}</span></p>
                         </div>
                         <div class="col-md-4">
-                            <div class="col-md-6">R$ {{ product.value|number_format(2, ',', '.') }}</div>
+                            <div class="col-md-6">R$ {{ item.product.value|number_format(2, ',', '.') }}</div>
                             <div class="col-md-6">
                                 <div class="input-group">
-                                    <input value="1" type="number" class="form-control" aria-describedby="basic-addon2">
+                                    <input value="{{ item.quantity }}" type="number" class="form-control" aria-describedby="basic-addon2">
                                 </div>
                             </div>
                         </div>
