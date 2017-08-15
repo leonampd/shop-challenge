@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Todos os produtos{% endblock %}
+
+{% block body %}
+    <header class="row">
+        <div class="col-md-10">
+            <h1>Produtos</h1>
+        </div>
+        <div class="col-md-2">Carrinho</div>
+    </header>
+    <div class="row produtos-row">
+        <div class="col-xs-12 col-md-3">
+            <div class="produto">
+                <a href="#" class="imagem">
+                    <img class="img-responsive" src="http://sm.ign.com/ign_br/screenshot/default/star-wars-darth-vader-sixth-scale-feature-1000763_e72v.jpg" alt="Fantasia Darth Vader">
+                </a>
+                <div class="infos">
+                    <a href="https://capricho.abril.com.br/produtos-ch/chinelo-capricho-slide-pelo-brancopink/" class="titulo">Fantasia Darth Vader</a>
+                    <a href="https://capricho.abril.com.br/produtos-ch/chinelo-capricho-slide-pelo-brancopink/" class="subtitulo">Maria</a>
+                    <span class="preco">R$ 125,00</span>
+                    <a class="btn btn-primary btn-lg btn-block btn-add-to-cart" href="#" role="button">Adicionar ao carrinho</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-3">
+            <div class="produto">
+                <a href="#" class="imagem">
+                    <img class="img-responsive" src="http://admin.mixpalestras.com.br/Palestrantes/photos/Cafu.jpg" alt="Fantasia do Cafú">
+                </a>
+                <div class="infos">
+                    <a href="https://capricho.abril.com.br/produtos-ch/chinelo-capricho-slide-pelo-brancopink/" class="titulo">Fantasia do Cafú</a>
+                    <a href="https://capricho.abril.com.br/produtos-ch/chinelo-capricho-slide-pelo-brancopink/" class="subtitulo">João Thiago</a>
+                    <span class="preco">R$ 100,00</span>
+                    <a class="btn btn-primary btn-lg btn-block btn-add-to-cart" href="#" role="button">Adicionar ao carrinho</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-3">
+            <div class="produto">
+                <a href="#" class="imagem">
+                    <img class="img-responsive" src="http://s2.glbimg.com/R7FNz8diQIlVxx9SRwjBxpm3T6RGU-y_0n8GSFIZWqdIoz-HdGixxa_8qOZvMp3w/s.glbimg.com/jo/g1/f/original/2012/10/31/horsehead3.jpg" alt="Fantasia do Cafú">
+                </a>
+                <div class="infos">
+                    <a href="https://capricho.abril.com.br/produtos-ch/chinelo-capricho-slide-pelo-brancopink/" class="titulo">Máscara de cavalo</a>
+                    <a href="https://capricho.abril.com.br/produtos-ch/chinelo-capricho-slide-pelo-brancopink/" class="subtitulo">Cézar Anthony Martins</a>
+                    <span class="preco">R$ 150,00</span>
+                    <a class="btn btn-primary btn-lg btn-block btn-add-to-cart" href="#" role="button">Adicionar ao carrinho</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

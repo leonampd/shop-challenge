@@ -1,3 +1,6 @@
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+
+shop_challenge:
+    resource: '@ShopBundle/Resources/config/routing.php'
