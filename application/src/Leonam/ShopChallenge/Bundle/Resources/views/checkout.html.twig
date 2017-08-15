@@ -3,47 +3,50 @@
 {% block title %}[Checkout] ShopChallenge{% endblock %}
 
 {% block body %}
-    <div class="panel panel-default cart">
-        <div class="panel-heading">
-            <div class="panel-title">
-                <h4><span class="glyphicon glyphicon-shopping-cart"></span> Carrinho de compras</h4>
+    <form method="post" action="/checkout">
+        <div class="panel panel-default cart">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    <h4><span class="glyphicon glyphicon-shopping-cart"></span> Carrinho de compras</h4>
+                </div>
             </div>
-        </div>
-        <div class="panel-body">
-            {% for item in items %}
-                <div class="row produto-row">
-                    <div class="produto">
-                        <div class="col-md-2">
-                            <img class="img-responsive" src="{{ item.product.featuredImage }}" alt="{{ item.product.name }}">
-                        </div>
-                        <div class="col-md-6 infos">
-                            <h4>{{ item.product.name }}</h4>
-                            <p>{{ item.product.description }}</p>
-                            <p>Vendido e entregue por <span class="vendido_entregue_por">{{ item.product.seller.name }}</span></p>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="col-md-6">R$ {{ item.product.value|number_format(2, ',', '.') }}</div>
-                            <div class="col-md-6">
-                                <div class="input-group">
-                                    <input value="{{ item.quantity }}" type="number" class="form-control" aria-describedby="basic-addon2">
+            <div class="panel-body">
+                {% for item in items %}
+                    <input type="hidden" name="product_id[]" value="{{ item.product.id }}">
+                    <div class="row produto-row">
+                        <div class="produto">
+                            <div class="col-md-2">
+                                <img class="img-responsive" src="{{ item.product.featuredImage }}" alt="{{ item.product.name }}">
+                            </div>
+                            <div class="col-md-6 infos">
+                                <h4>{{ item.product.name }}</h4>
+                                <p>{{ item.product.description }}</p>
+                                <p>Vendido e entregue por <span class="vendido_entregue_por">{{ item.product.seller.name }}</span></p>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="col-md-6">R$ {{ item.product.value|number_format(2, ',', '.') }}</div>
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                        <input value="{{ item.quantity }}" type="number" name="product_quantity[{{ item.product.id }}]" class="form-control" aria-describedby="basic-addon2">
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            {% endfor %}
-        </div>
-        <div class="panel-footer">
-            <div class="row text-center">
-                <div class="col-xs-9">
-                    <h4 class="text-right">Total <strong>R$ 375,00</strong></h4>
-                </div>
-                <div class="col-xs-3">
-                    <button type="button" class="btn btn-success btn-block">
-                        Finalizar compra
-                    </button>
+                {% endfor %}
+            </div>
+            <div class="panel-footer">
+                <div class="row text-center">
+                    <div class="col-xs-9">
+                        <h4 class="text-right">Total <strong>R$ 375,00</strong></h4>
+                    </div>
+                    <div class="col-xs-3">
+                        <button type="submit" class="btn btn-success btn-block">
+                            Finalizar compra
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
 {% endblock %}
