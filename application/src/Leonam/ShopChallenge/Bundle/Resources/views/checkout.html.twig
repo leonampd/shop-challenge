@@ -10,71 +10,33 @@
             </div>
         </div>
         <div class="panel-body">
-            <div class="row produto-row">
-                <div class="produto">
-                    <div class="col-md-2">
-                        <img class="img-responsive" src="http://sm.ign.com/ign_br/screenshot/default/star-wars-darth-vader-sixth-scale-feature-1000763_e72v.jpg" alt="Fantasia Darth Vader">
-                    </div>
-                    <div class="col-md-6 infos">
-                        <h4>Fantasia Darth Vader</h4>
-                        <p>Fantasia do lord Sith</p>
-                        <p>Vendido e entregue por <span class="vendido_entregue_por">Maria Barros</span></p>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="col-md-6">R$ 100,00</div>
-                        <div class="col-md-6">
-                            <div class="input-group">
-                                <input value="1" type="number" class="form-control" aria-describedby="basic-addon2">
+            {% for product in products %}
+                <div class="row produto-row">
+                    <div class="produto">
+                        <div class="col-md-2">
+                            <img class="img-responsive" src="{{ product.featuredImage }}" alt="{{ product.name }}">
+                        </div>
+                        <div class="col-md-6 infos">
+                            <h4>{{ product.name }}</h4>
+                            <p>{{ product.description }}</p>
+                            <p>Vendido e entregue por <span class="vendido_entregue_por">{{ product.seller.name }}</span></p>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="col-md-6">R$ {{ product.value|number_format(2, ',', '.') }}</div>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <input value="1" type="number" class="form-control" aria-describedby="basic-addon2">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row produto-row">
-                <div class="produto">
-                    <div class="col-md-2">
-                        <img class="img-responsive" src="http://admin.mixpalestras.com.br/Palestrantes/photos/Cafu.jpg" alt="Fantasia Do Cafú">
-                    </div>
-                    <div class="col-md-6 infos">
-                        <h4>Fantasia Darth Vader</h4>
-                        <p>Fantasia do lord Sith</p>
-                        <p>Vendido e entregue por <span class="vendido_entregue_por">Maria Barros</span></p>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="col-md-6">R$ 100,00</div>
-                        <div class="col-md-6">
-                            <div class="input-group">
-                                <input value="1" type="number" class="form-control" aria-describedby="basic-addon2">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row produto-row">
-                <div class="produto">
-                    <div class="col-md-2">
-                        <img class="img-responsive" src="http://s2.glbimg.com/R7FNz8diQIlVxx9SRwjBxpm3T6RGU-y_0n8GSFIZWqdIoz-HdGixxa_8qOZvMp3w/s.glbimg.com/jo/g1/f/original/2012/10/31/horsehead3.jpg" alt="Fantasia Darth Vader">
-                    </div>
-                    <div class="col-md-6 infos">
-                        <h4>Fantasia Darth Vader</h4>
-                        <p>Fantasia do lord Sith</p>
-                        <p>Vendido e entregue por <span class="vendido_entregue_por">Maria Barros</span></p>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="col-md-6">R$ 100,00</div>
-                        <div class="col-md-6">
-                            <div class="input-group">
-                                <input value="1" type="number" class="form-control" aria-describedby="basic-addon2">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
         <div class="panel-footer">
             <div class="row text-center">
                 <div class="col-xs-9">
-                    <h4 class="text-right">Total <strong>R$ 50,00</strong></h4>
+                    <h4 class="text-right">Total <strong>R$ 375,00</strong></h4>
                 </div>
                 <div class="col-xs-3">
                     <button type="button" class="btn btn-success btn-block">
