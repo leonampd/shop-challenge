@@ -7,12 +7,12 @@ use Symfony\Component\Routing\RouteCollection;
 use Symfony\Component\Routing\Route;
 
 $route = new Route(
-    '/products',
+    '/cart',
     array(
-        '_controller' => 'ShopBundle:Products:list'
+        '_controller' => 'ShopBundle:Cart:checkout'
     )
 );
 $routes = new RouteCollection();
-$routes->add('shop_challenge_list_products', $route);
+$routes->add('shop_challenge_cart', $route);
 
 return $routes;

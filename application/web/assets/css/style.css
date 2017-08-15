@@ -6492,34 +6492,34 @@ button.close {
   }
 }
 
-.produtos-row .produto {
+.cart {
+  margin: 40px 0;
+}
+
+.cart .produto-row {
+  margin-bottom: 30px;
   background-color: #fff;
-  border: solid 1px #eee;
   margin-bottom: 30px;
 }
 
-.produtos-row .produto .infos {
-  margin: 20px 15px;
-}
-
-.produtos-row .produto .infos .titulo,
-.produtos-row .produto .infos .subtitulo,
-.produtos-row .produto .infos .preco {
+.cart .produto-row .infos .titulo,
+.cart .produto-row .infos .subtitulo,
+.cart .produto-row .infos .preco {
   display: block;
   line-height: 18pt;
 }
 
-.produtos-row .produto .infos .titulo {
+.cart .produto-row .infos .titulo {
   font-size: 14pt;
   font-weight: bold;
 }
 
-.produtos-row .produto .infos .preco {
+.cart .produto-row .infos .preco {
   font-weight: bold;
   font-size: 12pt;
 }
 
-.produtos-row .produto .infos .btn-add-to-cart {
+.cart .produto-row .infos .btn-add-to-cart {
   margin: 15px 0;
 }
 

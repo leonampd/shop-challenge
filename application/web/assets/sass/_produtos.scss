@@ -1,15 +1,10 @@
-.produtos-row {
-  .produto {
-    background-color: #fff;
-    border: solid 1px $gray-lighter;
+.cart {
+  margin: 40px 0;
+  .produto-row {
     margin-bottom: 30px;
-    //.imagem img {
-    //  width: 100%;
-    //  min-height: 180px;
-    //  max-height: 185px;
-    //}
+    background-color: #fff;
+    margin-bottom: 30px;
     .infos {
-      margin: 20px 15px;
       .titulo, .subtitulo, .preco {
         display: block;
         line-height: 18pt;
