@@ -9,10 +9,10 @@ use Symfony\Component\Routing\Route;
 $route = new Route(
     '/cart',
     array(
-        '_controller' => 'ShopBundle:Cart:checkout'
+        '_controller' => 'ShopBundle:Cart:precheckout'
     )
 );
 $routes = new RouteCollection();
-$routes->add('shop_challenge_cart', $route);
+$routes->add('shop_challenge_cart_precheckout', $route);
 
 return $routes;
