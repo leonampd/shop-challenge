@@ -20,5 +20,5 @@ abstract class Repository
     abstract public function update();
     abstract public function delete();
     abstract public function getAll() : array;
-    abstract public function getById(mixed $id) : EntityBase;
+    abstract public function getById($id) : EntityBase;
 }

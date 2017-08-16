@@ -27,16 +27,22 @@ class ProductRepository extends Repository
     /**
      * Instancia e retorna objs Product para evitar maior complexidade e acesso a banco de dados
      *
-     * @return array
+     * @return \Leonam\ShopChallenge\Bundle\Entity\Product[]
      */
     public function getAll(): array
     {
         return $this->persistance->retrieve();
     }
 
-    public function getById(mixed $id): EntityBase
+    public function getById($id): EntityBase
     {
-        // TODO: Implement getById() method.
+        $products = $this->persistance->retrieve();
+        foreach ($products as $product) {
+            if ((int)$id === $product->getId()) {
+                return $product;
+            }
+        }
+        throw new \Exception('Product not found');
     }
 
 }
