@@ -78,9 +78,12 @@ class Purchase
 
     public function paymentShouldBeSplited(): bool
     {
-        if (count($this->getSellers()) > 1) {
+        $sellers = $this->getSellers();
+        if (count($sellers) == 1 && array_values($sellers)[0]->isMarketPlaceOwner()) {
+            return false;
+        }
+        if (count($sellers) > 1) {
             return true;
         }
-        return false;
     }
 }
