@@ -7,7 +7,6 @@
     namespace Leonam\ShopChallenge\Bundle\Model;
 
     use Leonam\ShopChallenge\Bundle\Entity\CartRepository;
-    use Leonam\ShopChallenge\Bundle\Entity\ProductRepository;
     use Leonam\ShopChallenge\Bundle\Persistance\JustForTestPersistance;
 
 
