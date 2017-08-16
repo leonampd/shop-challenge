@@ -14,6 +14,11 @@ class Seller implements EntityBase
     /**
      * @var string
      */
+    protected $recipient_id;
+
+    /**
+     * @var string
+     */
     protected $name;
 
     /**
@@ -37,6 +42,22 @@ class Seller implements EntityBase
     public function isMarketPlaceOwner()
     {
         return $this->marketPlaceOwner;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRecipientId(): string
+    {
+        return $this->recipient_id;
+    }
+
+    /**
+     * @param string $recipient_id
+     */
+    public function setRecipientId(string $recipient_id)
+    {
+        $this->recipient_id = $recipient_id;
     }
 
     /**
