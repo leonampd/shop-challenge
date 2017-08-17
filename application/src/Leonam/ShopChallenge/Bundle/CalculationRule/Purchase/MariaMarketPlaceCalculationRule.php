@@ -19,7 +19,7 @@ class MariaMarketPlaceCalculationRule implements Rule, DividedPaymentCalculation
     {
         $total = 0;
         foreach ($items as $item) {
-            $total += self::SHIPPING_TAX + ($item->getProduct()->getValue() * $item->getQuantity());;
+            $total += self::SHIPPING_TAX + ($item->getProduct()->getValue() * $item->getQuantity());
         }
         return $total;
     }
@@ -27,8 +27,12 @@ class MariaMarketPlaceCalculationRule implements Rule, DividedPaymentCalculation
     public function calculateDividedPayment(PurchaseItem $item): DividedPayment
     {
         $itemTotalPrice = $item->getProduct()->getValue() * $item->getQuantity();
-        $ownerPart = $itemTotalPrice * self::MARKETPLACE_OWNER_PERCENTAGE;
-        $partnerPart = ($itemTotalPrice - $ownerPart) + self::SHIPPING_TAX;
+        $ownerPart = self::SHIPPING_TAX + ($item->getProduct()->getValue() * $item->getQuantity());
+        $partnerPart = 0;
+        if (!$item->getProduct()->getSeller()->isMarketPlaceOwner()) {
+            $ownerPart = $itemTotalPrice * self::MARKETPLACE_OWNER_PERCENTAGE;
+            $partnerPart = ($itemTotalPrice - $ownerPart) + self::SHIPPING_TAX;
+        }
 
         return new DividedPayment($item, $itemTotalPrice, $ownerPart, $partnerPart);
     }

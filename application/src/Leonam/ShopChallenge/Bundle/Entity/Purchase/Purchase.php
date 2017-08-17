@@ -6,8 +6,10 @@
 
 namespace Leonam\ShopChallenge\Bundle\Entity\Purchase;
 
+use Leonam\ShopChallenge\Bundle\CalculationRule\Purchase\MariaMarketPlaceCalculationRule;
 use Leonam\ShopChallenge\Bundle\CalculationRule\Purchase\Rule;
 use Leonam\ShopChallenge\Bundle\CalculationRule\Purchase\SimpleTotalCalculation;
+use Leonam\ShopChallenge\Bundle\CalculationRule\Purchase\DividedPaymentCalculationRule;
 
 class Purchase
 {
@@ -30,6 +32,11 @@ class Purchase
      * @var \Leonam\ShopChallenge\Bundle\CalculationRule\Purchase\Rule;
      */
     protected $totalCalculationRule;
+
+    /**
+     * @var \Leonam\ShopChallenge\Bundle\CalculationRule\Purchase\DividedPaymentCalculationRule;
+     */
+    protected $dividedPaymentCalculationRule;
 
     public function setItems(array $items)
     {
@@ -74,6 +81,25 @@ class Purchase
             $this->totalCalculationRule = new SimpleTotalCalculation();
         }
         return $this->totalCalculationRule->calculate($this->getItems());
+    }
+
+    public function getOwnerPart()
+    {
+        if (!$this->paymentShouldBeSplited()) {
+            return $this->getTotal();
+        }
+
+        if (null === $this->dividedPaymentCalculationRule) {
+            $this->dividedPaymentCalculationRule = new MariaMarketPlaceCalculationRule();
+        }
+
+        $total = 0;
+        foreach ($this->getItems() as $item) {
+            $paymentPart = $this->dividedPaymentCalculationRule->calculateDividedPayment($item);
+            $total += $paymentPart->getOwnerPart();
+        }
+
+        return $total;
     }
 
     public function paymentShouldBeSplited(): bool
