@@ -81,6 +81,6 @@ class PurchaseTest extends TestCase
      */
     public function testGetSumOwnerShouldBeReceiveFromADividedPurchase($purchase)
     {
-        $this->assertEquals(182, $purchase->getOwnerPart());
+        $this->assertEquals(18200, $purchase->getOwnerPart());
     }
 }

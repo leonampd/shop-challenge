@@ -14,7 +14,7 @@ class JustForTestPersistance implements PersistanceBase
     public function retrieve()
     {
         $sellerMaria = new Seller('Maria Barros', Seller::MARKETPLACE_OWNER);
-        $sellerMaria->setRecipientId('12314');
+        $sellerMaria->setRecipientId('re_cj6g8ti6f0xf2rw6d3daljdw2');
         $vader = new Product(
             'Fantasia Darth Vader',
             125,
@@ -24,7 +24,7 @@ class JustForTestPersistance implements PersistanceBase
             ->setId(1);
 
         $sellerThiago = new Seller('João Thiago Samuel Cavalcanti');
-        $sellerThiago->setRecipientId('98764');
+        $sellerThiago->setRecipientId('re_cj6g8vsr40xg1rw6d7gcjl5ie');
         $cafu = new Product(
             'Fantasia Cafú',
             100,
@@ -34,7 +34,7 @@ class JustForTestPersistance implements PersistanceBase
             ->setId(2);
 
         $sellerCesar = new Seller('César Anthony João Martins');
-        $sellerCesar->setRecipientId('9807');
+        $sellerCesar->setRecipientId('re_cj6g8wn960vq7rk6d6dprb3fh');
         $cavalo = new Product(
             'Máscara de cavalo',
             150,

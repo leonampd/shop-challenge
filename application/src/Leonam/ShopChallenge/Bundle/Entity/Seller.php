@@ -49,7 +49,7 @@ class Seller implements EntityBase
      */
     public function getRecipientId(): string
     {
-        return $this->recipient_id;
+        return $this->recipient_id ?? '';
     }
 
     /**

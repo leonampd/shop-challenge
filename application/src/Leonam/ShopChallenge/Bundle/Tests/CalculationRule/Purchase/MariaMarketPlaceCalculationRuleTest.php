@@ -56,7 +56,7 @@ class MariaMarketPlaceCalculationRuleTest extends TestCase
         $purchaseItem = new PurchaseItem($product1,1);
         $purchase->setItems([$purchaseItem]);
 
-        $this->assertEquals(167, $purchase->getTotal());
+        $this->assertEquals(16700, $purchase->getTotal());
 
         $product2 = clone $product1;
         $product2->setValue(100);
@@ -64,7 +64,7 @@ class MariaMarketPlaceCalculationRuleTest extends TestCase
 
         $purchase->addItem($purchaseItem2);
 
-        $this->assertEquals(309, $purchase->getTotal());
+        $this->assertEquals(30900, $purchase->getTotal());
     }
 
     public function providerScenariosToCalcDividedPayments()
@@ -84,8 +84,8 @@ class MariaMarketPlaceCalculationRuleTest extends TestCase
             new PurchaseItem($product2, 1)
         ]);
 
-        $dividedPaymentProduct1 = new DividedPayment($purchaseItem1, 100, 15, 127);
-        $dividedPaymentProduct2 = new DividedPayment($purchaseItem2, 125, 18.75, 148.25);
+        $dividedPaymentProduct1 = new DividedPayment($purchaseItem1, 10000, 1500, 12700);
+        $dividedPaymentProduct2 = new DividedPayment($purchaseItem2, 12500, 1875, 14825);
 
         return [
             [$purchase, [$dividedPaymentProduct1, $dividedPaymentProduct2]]

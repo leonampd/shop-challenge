@@ -38,6 +38,8 @@ class Purchase
      */
     protected $dividedPaymentCalculationRule;
 
+    protected $dividedPayments;
+
     public function setItems(array $items)
     {
         $this->items = $items;
@@ -100,6 +102,20 @@ class Purchase
         }
 
         return $total;
+    }
+
+    /**
+     * @return \Leonam\ShopChallenge\Bundle\Entity\Transaction\DividedPayment[]
+     */
+    public function getDividedPayments()
+    {
+        if (null === $this->dividedPaymentCalculationRule) {
+            $this->dividedPaymentCalculationRule = new MariaMarketPlaceCalculationRule();
+        }
+        foreach ($this->getItems() as $item) {
+            $this->dividedPayments[] = $this->dividedPaymentCalculationRule->calculateDividedPayment($item);
+        }
+        return $this->dividedPayments;
     }
 
     public function paymentShouldBeSplited(): bool

@@ -43,7 +43,7 @@
             return $this->getCartItems();
         }
 
-        public function getById(mixed $id): EntityBase
+        public function getById($id): EntityBase
         {
             // TODO: Implement getById() method.
         }
