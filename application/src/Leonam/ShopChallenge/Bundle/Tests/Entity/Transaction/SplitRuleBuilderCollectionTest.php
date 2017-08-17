@@ -32,18 +32,20 @@ class SplitRuleBuilderCollectionTest extends TestCase
         $anotherSeller = new Seller('another seller');
 
         $product1 = new Product('product', 125, $seller);
+        $product1->setId(1);
         $purchaseItem = new PurchaseItem($product1,1);
         $purchase->setItems([$purchaseItem]);
 
         $this->assertEquals(16700, $purchase->getTotal());
 
         $product2 = clone $product1;
+        $product2->setId(2);
         $product2->setValue(100);
         $product2->setSeller($anotherSeller);
         $purchaseItem2 = new PurchaseItem($product2, 1);
 
         $purchase->addItem($purchaseItem2);
-        $this->assertEquals(18200, $purchase->getTotal());
+        $this->assertEquals(30900, $purchase->getTotal());
 
         $splitRuleBuilder = new SplitRuleBuilderCollection($purchase);
         $builderDirector = new SplitRuleCollectionDirector;

@@ -51,25 +51,30 @@ class SplitRuleBuilderCollection implements SplitRuleCollectionBuilderInterface
     public function createSplitRules()
     {
         $payments = $this->purchase->getDividedPayments();
+        $owner = new \stdClass();
+        $owner->total = 0;
         foreach ($payments as $payment) {
-            $sellerMarketPlaceOwner = $payment->getPurchaseItem()
-                                              ->getProduct()
-                                              ->getSeller()
-                                              ->isMarketPlaceOwner();
-            $value = $payment->getPartnerPart();
-            if ($sellerMarketPlaceOwner) {
-                $value = $payment->getOwnerPart();
-            }
-
             $recipient = $this->sdk->getRecipient($payment->getPurchaseItem()->getProduct()->getSeller()->getRecipientID());
-
-            $this->splitRuleCollection[] = $this->sdk->splitRule()->monetaryRule(
-                $value,
-                $recipient,
-                true,
-                true
-            );
+            if ($payment->getPurchaseItem()->getProduct()->getSeller()->isMarketPlaceOwner()) {
+                $owner->recipient = $recipient;
+                $owner->total += ($payment->getOwnerPart() + $payment->getPartnerPart());
+            } else {
+                $owner->total += $payment->getOwnerPart();
+                $this->splitRuleCollection[] = $this->sdk->splitRule()->monetaryRule(
+                    $payment->getPartnerPart(),
+                    $recipient,
+                    true,
+                    true
+                );
+            }
         }
+
+        $this->splitRuleCollection[] = $this->sdk->splitRule()->monetaryRule(
+            $owner->total,
+            $owner->recipient,
+            true,
+            true
+        );
     }
 
     public function getSplitRuleCollection() : PagarMeSplitRuleCollection
