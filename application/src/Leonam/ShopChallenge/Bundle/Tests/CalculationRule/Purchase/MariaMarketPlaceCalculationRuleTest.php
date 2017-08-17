@@ -6,11 +6,12 @@
 
 namespace Leonam\ShopChallenge\Bundle\Tests\CalculationRule\Purchase;
 
-use Leonam\ShopChallenge\Bundle\CalculationRule\Purchase\MariaMarketPlaceCalculationRule;
+use Leonam\ShopChallenge\Bundle\Entity\Product;
+use Leonam\ShopChallenge\Bundle\Entity\Seller;
 use Leonam\ShopChallenge\Bundle\Entity\Purchase\Purchase;
 use Leonam\ShopChallenge\Bundle\Entity\Purchase\PurchaseItem;
-use Leonam\ShopChallenge\Bundle\Entity\Seller;
-use Leonam\ShopChallenge\Bundle\Entity\Product;
+use Leonam\ShopChallenge\Bundle\Entity\Transaction\DividedPayment;
+use Leonam\ShopChallenge\Bundle\CalculationRule\Purchase\MariaMarketPlaceCalculationRule;
 use PHPUnit\Framework\TestCase;
 
 class MariaMarketPlaceCalculationRuleTest extends TestCase
@@ -45,8 +46,8 @@ class MariaMarketPlaceCalculationRuleTest extends TestCase
      */
     public function testTotalPurchaseCalculationFromMariaMarketPlaceCalculationRule()
     {
-        $purchase = new Purchase();
         $mariaMarketPlaceRule = new MariaMarketPlaceCalculationRule();
+        $purchase = new Purchase();
         $purchase->setTotalCalculationRule($mariaMarketPlaceRule);
 
         $seller = new Seller('Maria', Seller::MARKETPLACE_OWNER);
@@ -64,5 +65,43 @@ class MariaMarketPlaceCalculationRuleTest extends TestCase
         $purchase->addItem($purchaseItem2);
 
         $this->assertEquals(309, $purchase->getTotal());
+    }
+
+    public function providerScenariosToCalcDividedPayments()
+    {
+        $ownerSeller = new Seller('Partner 1');
+        $partnerSeller = new Seller('Partner 2');
+
+        $purchase = new Purchase();
+
+        $product1 = new Product('product', 100, $ownerSeller);
+        $product2 = new Product('product 2', 125, $partnerSeller);
+
+        $purchaseItem1 = new PurchaseItem($product1, 1);
+        $purchaseItem2 = new PurchaseItem($product2, 1);
+        $purchase->setItems([
+            new PurchaseItem($product1, 1),
+            new PurchaseItem($product2, 1)
+        ]);
+
+        $dividedPaymentProduct1 = new DividedPayment($purchaseItem1, 100, 15, 127);
+        $dividedPaymentProduct2 = new DividedPayment($purchaseItem2, 125, 18.75, 148.25);
+
+        return [
+            [$purchase, [$dividedPaymentProduct1, $dividedPaymentProduct2]]
+        ];
+    }
+
+    /**
+     * @dataProvider providerScenariosToCalcDividedPayments
+     * @param \Leonam\ShopChallenge\Bundle\Entity\Purchase\Purchase $purchase
+     * @param $dividedPayments
+     */
+    public function testDividedPaymentCalculation(Purchase $purchase, $dividedPayments)
+    {
+        $calc = new MariaMarketPlaceCalculationRule();
+        foreach ($purchase->getItems() as $key => $item) {
+            $this->assertEquals($dividedPayments[$key], $calc->calculateDividedPayment($item));
+        }
     }
 }
