@@ -80,7 +80,7 @@ class Purchase
     public function getTotal(): float
     {
         if (null === $this->totalCalculationRule) {
-            $this->totalCalculationRule = new SimpleTotalCalculation();
+            $this->totalCalculationRule = new MariaMarketPlaceCalculationRule();
         }
         return $this->totalCalculationRule->calculate($this->getItems());
     }
@@ -113,7 +113,7 @@ class Purchase
             $this->dividedPaymentCalculationRule = new MariaMarketPlaceCalculationRule();
         }
         foreach ($this->getItems() as $item) {
-            $this->dividedPayments[] = $this->dividedPaymentCalculationRule->calculateDividedPayment($item);
+            $this->dividedPayments[$item->getProduct()->getId()] = $this->dividedPaymentCalculationRule->calculateDividedPayment($item);
         }
         return $this->dividedPayments;
     }
@@ -121,7 +121,7 @@ class Purchase
     public function paymentShouldBeSplited(): bool
     {
         $sellers = $this->getSellers();
-        if (count($sellers) == 1 && array_values($sellers)[0]->isMarketPlaceOwner()) {
+        if (count($sellers) === 1 && array_values($sellers)[0]->isMarketPlaceOwner()) {
             return false;
         }
         if (count($sellers) > 1) {
