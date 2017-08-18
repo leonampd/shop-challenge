@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Compra finalizada! | ShopChallenge{% endblock %}
+
+{% block body %}
+    <div class="panel panel-default">
+        <div class="panel-heading">WOW! Compra finalizada com sucesso!</div>
+        <div class="panel-body">
+            <p>Oi! sua compra <strong>{{ transaction.id }}</strong> foi finalizada com sucesso! Ela está agora em processamento.</p>
+        </div>
+    </div>
+{% endblock %}
