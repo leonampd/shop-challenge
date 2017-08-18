@@ -48,7 +48,8 @@
                 $installments,
                 $capture,
                 $urlPostBack,
-                $collection
+                [],
+                ["split_rules" => $collection]
             );
         }
     }

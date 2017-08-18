@@ -64,6 +64,7 @@ class SplitRuleBuilderCollection implements SplitRuleCollectionBuilderInterface
                     $payment->getPartnerPart(),
                     $recipient,
                     true,
+                    true,
                     true
                 );
             }
@@ -72,6 +73,7 @@ class SplitRuleBuilderCollection implements SplitRuleCollectionBuilderInterface
         $this->splitRuleCollection[] = $this->sdk->splitRule()->monetaryRule(
             $owner->total,
             $owner->recipient,
+            true,
             true,
             true
         );
