@@ -13,6 +13,6 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        return $this->redirectToRoute('shop_challenge_cart');
+        return $this->redirectToRoute('shop_challenge_cart_precheckout');
     }
 }
