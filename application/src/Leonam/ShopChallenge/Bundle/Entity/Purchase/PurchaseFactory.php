@@ -6,7 +6,6 @@
 
 namespace Leonam\ShopChallenge\Bundle\Entity\Purchase;
 
-
 use Leonam\ShopChallenge\Bundle\Entity\Customer\Customer;
 use Leonam\ShopChallenge\Bundle\Entity\ProductRepository;
 use Leonam\ShopChallenge\Bundle\Persistance\JustForTestPersistance;
@@ -17,10 +16,10 @@ class PurchaseFactory
         Customer $customer,
         array $productsIds,
         array $productsQuantities
-    )
-    {
+    ) {
+    
         $purchaseItems = [];
-        $productModel = new ProductRepository( new JustForTestPersistance() );
+        $productModel = new ProductRepository(new JustForTestPersistance());
         foreach ($productsIds as $key => $pId) {
             $product = $productModel->getById($pId);
             $quantity = $productsQuantities[$product->getId()];

@@ -12,7 +12,8 @@ abstract class Repository
 {
     protected $persistance;
 
-    public function __construct(PersistanceBase $persistance){
+    public function __construct(PersistanceBase $persistance)
+    {
         $this->persistance = $persistance;
     }
 

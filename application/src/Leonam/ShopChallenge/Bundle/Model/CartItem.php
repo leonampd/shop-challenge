@@ -6,53 +6,52 @@
 
     namespace Leonam\ShopChallenge\Bundle\Model;
 
-
     use Leonam\ShopChallenge\Bundle\Entity\Product;
 
-    class CartItem
-    {
-        /**
+class CartItem
+{
+    /**
          * @var Product
          */
-        protected $product;
+    protected $product;
 
-        /**
+    /**
          * @var int
          */
-        protected $quantity;
+    protected $quantity;
 
-        /**
+    /**
          * CartItem constructor.
          * @param Product $product
          * @param int $quantity
          */
-        public function __construct(Product $product, int $quantity)
-        {
-            $this->product = $product;
-            $this->quantity = $quantity;
-        }
+    public function __construct(Product $product, int $quantity)
+    {
+        $this->product = $product;
+        $this->quantity = $quantity;
+    }
 
-        /**
+    /**
          * @return Product
          */
-        public function getProduct(): Product
-        {
-            return $this->product;
-        }
+    public function getProduct(): Product
+    {
+        return $this->product;
+    }
 
-        /**
+    /**
          * @return int
          */
-        public function getQuantity(): int
-        {
-            return $this->quantity;
-        }
+    public function getQuantity(): int
+    {
+        return $this->quantity;
+    }
 
-        /**
+    /**
          * @param int $quantity
          */
-        public function setQuantity(int $quantity)
-        {
-            $this->quantity = $quantity;
-        }
+    public function setQuantity(int $quantity)
+    {
+        $this->quantity = $quantity;
     }
+}

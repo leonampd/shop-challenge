@@ -55,5 +55,4 @@ class JustForTestPersistance implements PersistanceBase
     {
         // TODO: Implement delete() method.
     }
-
 }

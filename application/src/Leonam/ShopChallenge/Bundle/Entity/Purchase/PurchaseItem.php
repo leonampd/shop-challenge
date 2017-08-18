@@ -6,7 +6,6 @@
 
 namespace Leonam\ShopChallenge\Bundle\Entity\Purchase;
 
-
 use Leonam\ShopChallenge\Bundle\Entity\Product;
 
 class PurchaseItem

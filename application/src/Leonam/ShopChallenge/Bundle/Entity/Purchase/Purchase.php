@@ -53,7 +53,8 @@ class Purchase
         return $this->items;
     }
 
-    public function addItem(PurchaseItem $item) {
+    public function addItem(PurchaseItem $item)
+    {
         $this->items[] = $item;
     }
 
@@ -73,7 +74,8 @@ class Purchase
     /**
      * @param \Leonam\ShopChallenge\Bundle\CalculationRule\Purchase\Rule $totalCalculationRule
      */
-    public function setTotalCalculationRule(Rule $totalCalculationRule) {
+    public function setTotalCalculationRule(Rule $totalCalculationRule)
+    {
         $this->totalCalculationRule = $totalCalculationRule;
     }
 

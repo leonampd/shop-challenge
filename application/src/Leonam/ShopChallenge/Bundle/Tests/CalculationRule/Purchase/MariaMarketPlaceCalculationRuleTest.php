@@ -29,7 +29,7 @@ class MariaMarketPlaceCalculationRuleTest extends TestCase
         $seller = new Seller('Maria', Seller::MARKETPLACE_OWNER);
 
         $product1 = new Product('product', 125, $seller);
-        $purchaseItem = new PurchaseItem($product1,1);
+        $purchaseItem = new PurchaseItem($product1, 1);
         $purchase->setItems([$purchaseItem]);
 
         $this->assertEquals(16700, $purchase->getTotal());

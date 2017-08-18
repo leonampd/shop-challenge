@@ -16,7 +16,11 @@ $cartRoute = new Route(
 $checkoutRoute = new Route(
     '/checkout',
     ['_controller' => 'ShopBundle:Cart:checkout'],
-    array(), array(), '', array(), array('POST')
+    array(),
+    array(),
+    '',
+    array(),
+    array('POST')
 );
 
 $routes = new RouteCollection();

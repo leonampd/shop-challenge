@@ -6,7 +6,6 @@
 
 namespace Leonam\ShopChallenge\Bundle;
 
-
 use PagarMe\Sdk\PagarMe;
 
 class ShopChallengePagarmeSDK extends PagarMe implements SDK

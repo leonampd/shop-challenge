@@ -6,7 +6,6 @@
 
 namespace Leonam\ShopChallenge\Bundle\Persistance;
 
-
 interface PersistanceBase
 {
     public function retrieve();

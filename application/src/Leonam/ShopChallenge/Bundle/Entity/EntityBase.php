@@ -6,7 +6,6 @@
 
 namespace Leonam\ShopChallenge\Bundle\Entity;
 
-
 interface EntityBase
 {
 

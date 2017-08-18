@@ -27,10 +27,12 @@ class PurchaseFactoryTest extends TestCase
         $seller2->setRecipientId('980');
 
         $purchaseItem1 = new PurchaseItem(
-            new Product('teste',100, $seller1), 1
+            new Product('teste', 100, $seller1),
+            1
         );
         $purchaseItem2 = new PurchaseItem(
-            new Product('teste 2',120, $seller2), 1
+            new Product('teste 2', 120, $seller2),
+            1
         );
 
         $customer = new Customer([]);

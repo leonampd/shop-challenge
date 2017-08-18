@@ -6,10 +6,10 @@
 
 namespace Leonam\ShopChallenge\Bundle\CalculationRule;
 
-
 trait ConvertToCents
 {
-    public function convertToCents($value) {
+    public function convertToCents($value)
+    {
         return $value * 100;
     }
 }

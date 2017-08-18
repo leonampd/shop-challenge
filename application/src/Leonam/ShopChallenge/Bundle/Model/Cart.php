@@ -9,19 +9,18 @@
     use Leonam\ShopChallenge\Bundle\Entity\CartRepository;
     use Leonam\ShopChallenge\Bundle\Persistance\JustForTestPersistance;
 
-
-    class Cart
-    {
-        /**
+class Cart
+{
+    /**
          * @var CartItem
          */
-        protected $items;
+    protected $items;
 
-        public function getItems()
-        {
-            $fakeDBAccessLayer = new JustForTestPersistance();
-            $cartRepository = new CartRepository($fakeDBAccessLayer);
+    public function getItems()
+    {
+        $fakeDBAccessLayer = new JustForTestPersistance();
+        $cartRepository = new CartRepository($fakeDBAccessLayer);
 
-            return $cartRepository->getAll();
-        }
+        return $cartRepository->getAll();
     }
+}

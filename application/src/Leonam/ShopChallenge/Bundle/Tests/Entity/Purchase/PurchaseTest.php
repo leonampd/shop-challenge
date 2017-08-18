@@ -18,7 +18,7 @@ class PurchaseTest extends TestCase
     {
         $seller = new Seller('seller 1');
         $product1 = new Product('product', 100, $seller);
-        $purchaseItem = new PurchaseItem($product1,2);
+        $purchaseItem = new PurchaseItem($product1, 2);
 
         $purchase = new Purchase();
         $purchase->addItem($purchaseItem);
@@ -32,10 +32,10 @@ class PurchaseTest extends TestCase
         $seller1->setRecipientId('123');
 
         $product1 = new Product('product', 125, $seller1);
-        $purchaseItem = new PurchaseItem($product1,1);
+        $purchaseItem = new PurchaseItem($product1, 1);
 
         $product2 = new Product('product 2', 125, $seller1);
-        $purchaseItem2 = new PurchaseItem($product2,1);
+        $purchaseItem2 = new PurchaseItem($product2, 1);
 
         $purchase = new Purchase();
         $purchase->setItems([$purchaseItem, $purchaseItem2]);
@@ -52,10 +52,10 @@ class PurchaseTest extends TestCase
         $seller2->setRecipientId('321');
 
         $product1 = new Product('product', 125, $seller1);
-        $purchaseItem = new PurchaseItem($product1,1);
+        $purchaseItem = new PurchaseItem($product1, 1);
 
         $product2 = new Product('product 2', 100, $seller2);
-        $purchaseItem2 = new PurchaseItem($product2,1);
+        $purchaseItem2 = new PurchaseItem($product2, 1);
 
         $purchase = new Purchase();
         $purchase->setItems([$purchaseItem, $purchaseItem2]);

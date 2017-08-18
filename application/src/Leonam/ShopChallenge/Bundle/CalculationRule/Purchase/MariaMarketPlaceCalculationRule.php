@@ -6,7 +6,6 @@
 
 namespace Leonam\ShopChallenge\Bundle\CalculationRule\Purchase;
 
-
 use Leonam\ShopChallenge\Bundle\CalculationRule\ConvertToCents;
 use Leonam\ShopChallenge\Bundle\Entity\Purchase\PurchaseItem;
 use Leonam\ShopChallenge\Bundle\Entity\Transaction\DividedPayment;
@@ -41,5 +40,4 @@ class MariaMarketPlaceCalculationRule implements Rule, DividedPaymentCalculation
         $partnerPart = $this->convertToCents($partnerPart);
         return new DividedPayment($item, $itemTotalPrice, $ownerPart, $partnerPart);
     }
-
 }

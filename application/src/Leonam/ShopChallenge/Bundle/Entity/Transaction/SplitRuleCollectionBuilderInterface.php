@@ -6,7 +6,6 @@
 
 namespace Leonam\ShopChallenge\Bundle\Entity\Transaction;
 
-
 use Leonam\ShopChallenge\Bundle\Entity\Purchase\Purchase;
 
 interface SplitRuleCollectionBuilderInterface

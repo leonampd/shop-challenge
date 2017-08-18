@@ -6,13 +6,12 @@
 
 namespace Leonam\ShopChallenge\Bundle\CalculationRule\Purchase;
 
-
 class SimpleTotalCalculation implements Rule
 {
     public function calculate(array $purchaseItems) : float
     {
         $total = 0;
-        foreach ($purchaseItems  as $item) {
+        foreach ($purchaseItems as $item) {
             $total += ($item->getProduct()->getValue() * $item->getQuantity());
         }
 

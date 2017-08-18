@@ -33,7 +33,7 @@ class SplitRuleBuilderCollectionTest extends TestCase
 
         $product1 = new Product('product', 125, $seller);
         $product1->setId(1);
-        $purchaseItem = new PurchaseItem($product1,1);
+        $purchaseItem = new PurchaseItem($product1, 1);
         $purchase->setItems([$purchaseItem]);
 
         $this->assertEquals(16700, $purchase->getTotal());

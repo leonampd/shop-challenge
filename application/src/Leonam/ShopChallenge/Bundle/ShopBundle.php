@@ -8,7 +8,6 @@ namespace Leonam\ShopChallenge\Bundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-
 class ShopBundle extends Bundle
 {
 

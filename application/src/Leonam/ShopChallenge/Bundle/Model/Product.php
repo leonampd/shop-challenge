@@ -6,7 +6,6 @@
 
 namespace Leonam\ShopChallenge\Bundle\Model;
 
-
 use Leonam\ShopChallenge\Bundle\Entity\ProductRepository;
 use Leonam\ShopChallenge\Bundle\Entity\Repository;
 use Leonam\ShopChallenge\Bundle\Persistance\JustForTestPersistance;
@@ -23,7 +22,7 @@ class Product
     public function getById($id): Product
     {
         if (null === $this->repository) {
-            $this->repository = new ProductRepository( new JustForTestPersistance() );
+            $this->repository = new ProductRepository(new JustForTestPersistance());
         }
 
         $this->repository->getById($id);

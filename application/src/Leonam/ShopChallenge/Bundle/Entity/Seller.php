@@ -6,7 +6,6 @@
 
 namespace Leonam\ShopChallenge\Bundle\Entity;
 
-
 class Seller implements EntityBase
 {
     public const MARKETPLACE_OWNER = true;

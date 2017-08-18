@@ -6,7 +6,6 @@
 
 namespace Leonam\ShopChallenge\Bundle\Entity;
 
-
 class ProductRepository extends Repository
 {
     public function save()
@@ -44,5 +43,4 @@ class ProductRepository extends Repository
         }
         throw new \Exception('Product not found');
     }
-
 }

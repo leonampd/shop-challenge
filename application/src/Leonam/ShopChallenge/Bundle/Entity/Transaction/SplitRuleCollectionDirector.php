@@ -6,7 +6,6 @@
 
 namespace Leonam\ShopChallenge\Bundle\Entity\Transaction;
 
-
 use PagarMe\Sdk\SplitRule\SplitRuleCollection;
 
 class SplitRuleCollectionDirector

@@ -6,7 +6,6 @@
 
 namespace Leonam\ShopChallenge\Bundle;
 
-
 interface SDK
 {
 

@@ -6,7 +6,6 @@
 
 namespace Leonam\ShopChallenge\Bundle\Entity;
 
-
 class Product implements EntityBase
 {
     /**
@@ -165,7 +164,8 @@ class Product implements EntityBase
      * @return Product
      */
     public function setSeller(\Leonam\ShopChallenge\Bundle\Entity\Seller $seller
-    ): Product {
+    ): Product
+    {
         $this->seller = $seller;
 
         return $this;
@@ -190,6 +190,4 @@ class Product implements EntityBase
 
         return $this;
     }
-
-
 }
