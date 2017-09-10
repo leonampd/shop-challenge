@@ -10,7 +10,6 @@ use Leonam\ShopChallenge\Bundle\CalculationRule\Purchase\MariaMarketPlaceCalcula
 use Leonam\ShopChallenge\Bundle\Entity\Purchase\Purchase;
 use Leonam\ShopChallenge\Bundle\SDK;
 use PagarMe\Sdk\PagarMe as PagarMeSDK;
-use PagarMe\Sdk\SplitRule\SplitRule;
 use PagarMe\Sdk\SplitRule\SplitRuleCollection as PagarMeSplitRuleCollection;
 
 class SplitRuleBuilderCollection implements SplitRuleCollectionBuilderInterface
@@ -54,7 +53,8 @@ class SplitRuleBuilderCollection implements SplitRuleCollectionBuilderInterface
         $owner = new \stdClass();
         $owner->total = 0;
         foreach ($payments as $payment) {
-            $recipient = $this->sdk->getRecipient($payment->getPurchaseItem()->getProduct()->getSeller()->getRecipientID());
+            $recipientId = $payment->getPurchaseItem()->getProduct()->getSeller()->getRecipientId();
+            $recipient = $this->sdk->getRecipient($recipientId);
             if ($payment->getPurchaseItem()->getProduct()->getSeller()->isMarketPlaceOwner()) {
                 $owner->recipient = $recipient;
                 $owner->total += ($payment->getOwnerPart() + $payment->getPartnerPart());
