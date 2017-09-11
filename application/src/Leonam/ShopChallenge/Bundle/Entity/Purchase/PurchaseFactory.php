@@ -20,7 +20,7 @@ class PurchaseFactory
     
         $purchaseItems = [];
         $productModel = new ProductRepository(new JustForTestPersistance());
-        foreach ($productsIds as $key => $pId) {
+        foreach ($productsIds as $pId) {
             $product = $productModel->getById($pId);
             $quantity = $productsQuantities[$product->getId()];
             if ((int)$quantity > 0) {
