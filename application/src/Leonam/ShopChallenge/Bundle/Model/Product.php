@@ -25,6 +25,6 @@ class Product
             $this->repository = new ProductRepository(new JustForTestPersistance());
         }
 
-        $this->repository->getById($id);
+        return $this->repository->getById($id);
     }
 }

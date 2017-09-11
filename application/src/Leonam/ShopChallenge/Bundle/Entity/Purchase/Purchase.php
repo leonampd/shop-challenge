@@ -126,8 +126,6 @@ class Purchase
         if (count($sellers) === 1 && array_values($sellers)[0]->isMarketPlaceOwner()) {
             return false;
         }
-        if (count($sellers) > 1) {
-            return true;
-        }
+        return true;
     }
 }
