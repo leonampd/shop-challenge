@@ -34,7 +34,7 @@ class Product implements EntityBase
     protected $value;
 
     /**
-     * @var Leonam\ShopChallenge\Bundle\Entity\Seller $seller
+     * @var \Leonam\ShopChallenge\Bundle\Entity
      */
     protected $seller;
 
