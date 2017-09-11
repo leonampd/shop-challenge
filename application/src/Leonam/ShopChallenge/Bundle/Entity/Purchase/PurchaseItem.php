@@ -29,7 +29,7 @@ class PurchaseItem
     /**
      * @return \Leonam\ShopChallenge\Bundle\Entity\Product
      */
-    public function getProduct(): \Leonam\ShopChallenge\Bundle\Entity\Product
+    public function getProduct(): Product
     {
         return $this->product;
     }

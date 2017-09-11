@@ -41,7 +41,7 @@ class DividedPayment
     /**
      * @return \Leonam\ShopChallenge\Bundle\Entity\Purchase\PurchaseItem
      */
-    public function getPurchaseItem(): \Leonam\ShopChallenge\Bundle\Entity\Purchase\PurchaseItem
+    public function getPurchaseItem(): PurchaseItem
     {
         return $this->purchaseItem;
     }

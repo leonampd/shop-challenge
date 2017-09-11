@@ -153,7 +153,7 @@ class Product implements EntityBase
     /**
      * @return \Leonam\ShopChallenge\Bundle\Entity\Seller
      */
-    public function getSeller(): \Leonam\ShopChallenge\Bundle\Entity\Seller
+    public function getSeller(): Seller
     {
         return $this->seller;
     }
@@ -163,7 +163,7 @@ class Product implements EntityBase
      *
      * @return Product
      */
-    public function setSeller(\Leonam\ShopChallenge\Bundle\Entity\Seller $seller
+    public function setSeller(Seller $seller
     ): Product
     {
         $this->seller = $seller;
