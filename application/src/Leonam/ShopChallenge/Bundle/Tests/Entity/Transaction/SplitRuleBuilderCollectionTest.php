@@ -13,10 +13,8 @@ use Leonam\ShopChallenge\Bundle\Entity\Seller;
 use Leonam\ShopChallenge\Bundle\Entity\Product;
 use Leonam\ShopChallenge\Bundle\CalculationRule\Purchase\MariaMarketPlaceCalculationRule;
 use Leonam\ShopChallenge\Bundle\Entity\Transaction\SplitRuleCollectionDirector;
-use Leonam\ShopChallenge\Bundle\SDK;
 use Leonam\ShopChallenge\Bundle\ShopChallengePagarmeSDK;
 use PagarMe\Sdk\Recipient\Recipient;
-use PagarMe\Sdk\Recipient\RecipientHandler;
 use PagarMe\Sdk\SplitRule\SplitRuleCollection as PagarMeSplitRuleCollection;
 use PHPUnit\Framework\TestCase;
 

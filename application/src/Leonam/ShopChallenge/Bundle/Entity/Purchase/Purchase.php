@@ -8,8 +8,6 @@ namespace Leonam\ShopChallenge\Bundle\Entity\Purchase;
 
 use Leonam\ShopChallenge\Bundle\CalculationRule\Purchase\MariaMarketPlaceCalculationRule;
 use Leonam\ShopChallenge\Bundle\CalculationRule\Purchase\Rule;
-use Leonam\ShopChallenge\Bundle\CalculationRule\Purchase\SimpleTotalCalculation;
-use Leonam\ShopChallenge\Bundle\CalculationRule\Purchase\DividedPaymentCalculationRule;
 
 class Purchase
 {
